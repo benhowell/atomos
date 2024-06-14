@@ -5,7 +5,7 @@ atomos.atom
 Atom data type.
 '''
 
-import collections
+import collections.abc
 
 import atomos.atomic as atomic
 import atomos.util as util
@@ -72,7 +72,7 @@ class ARef(object):
         watches = self._watches.copy()
         for k in watches:
             fn = watches[k]
-            if isinstance(fn, collections.Callable):
+            if isinstance(fn, collections.abc.Callable):
                 fn(k, self, oldval, newval)
 
 
